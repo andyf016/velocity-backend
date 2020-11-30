@@ -7,6 +7,14 @@
       "otherEntityName": "room",
       "relationshipType": "one-to-many",
       "otherEntityRelationshipName": "facility"
+    },
+    {
+      "relationshipName": "user",
+      "otherEntityName": "user",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "login",
+      "ownerSide": true,
+      "otherEntityRelationshipName": "facility"
     }
   ],
   "fields": [

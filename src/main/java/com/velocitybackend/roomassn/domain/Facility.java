@@ -1,5 +1,6 @@
 package com.velocitybackend.roomassn.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -31,6 +32,10 @@ public class Facility implements Serializable {
     @OneToMany(mappedBy = "facility")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Set<Room> rooms = new HashSet<>();
+
+    @ManyToOne
+    @JsonIgnoreProperties(value = "facilities", allowSetters = true)
+    private User user;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -77,6 +82,19 @@ public class Facility implements Serializable {
 
     public void setRooms(Set<Room> rooms) {
         this.rooms = rooms;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public Facility user(User user) {
+        this.user = user;
+        return this;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

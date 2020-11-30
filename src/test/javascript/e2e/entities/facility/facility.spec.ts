@@ -40,7 +40,7 @@ describe('Facility e2e test', () => {
 
     await facilityComponentsPage.clickOnCreateButton();
 
-    await promise.all([facilityUpdatePage.setNameInput('name')]);
+    await promise.all([facilityUpdatePage.setNameInput('name'), facilityUpdatePage.userSelectLastOption()]);
 
     expect(await facilityUpdatePage.getNameInput()).to.eq('name', 'Expected Name value to be equals to name');
 

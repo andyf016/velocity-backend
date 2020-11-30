@@ -7,6 +7,8 @@ import { Observable } from 'rxjs';
 
 import { IFacility, Facility } from 'app/shared/model/facility.model';
 import { FacilityService } from './facility.service';
+import { IUser } from 'app/core/user/user.model';
+import { UserService } from 'app/core/user/user.service';
 
 @Component({
   selector: 'jhi-facility-update',
@@ -14,17 +16,26 @@ import { FacilityService } from './facility.service';
 })
 export class FacilityUpdateComponent implements OnInit {
   isSaving = false;
+  users: IUser[] = [];
 
   editForm = this.fb.group({
     id: [],
     name: [null, [Validators.required]],
+    user: [],
   });
 
-  constructor(protected facilityService: FacilityService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
+  constructor(
+    protected facilityService: FacilityService,
+    protected userService: UserService,
+    protected activatedRoute: ActivatedRoute,
+    private fb: FormBuilder
+  ) {}
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ facility }) => {
       this.updateForm(facility);
+
+      this.userService.query().subscribe((res: HttpResponse<IUser[]>) => (this.users = res.body || []));
     });
   }
 
@@ -32,6 +43,7 @@ export class FacilityUpdateComponent implements OnInit {
     this.editForm.patchValue({
       id: facility.id,
       name: facility.name,
+      user: facility.user,
     });
   }
 
@@ -54,6 +66,7 @@ export class FacilityUpdateComponent implements OnInit {
       ...new Facility(),
       id: this.editForm.get(['id'])!.value,
       name: this.editForm.get(['name'])!.value,
+      user: this.editForm.get(['user'])!.value,
     };
   }
 
@@ -71,5 +84,9 @@ export class FacilityUpdateComponent implements OnInit {
 
   protected onSaveError(): void {
     this.isSaving = false;
+  }
+
+  trackById(index: number, item: IUser): any {
+    return item.id;
   }
 }

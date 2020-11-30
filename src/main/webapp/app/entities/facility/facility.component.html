@@ -24,6 +24,7 @@
                 <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
                     <th scope="col"  jhiSortBy="id"><span>ID</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="name"><span>Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="user.login"><span>User</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -31,6 +32,9 @@
                 <tr *ngFor="let facility of facilities ;trackBy: trackId">
                     <td><a [routerLink]="['/facility', facility.id, 'view']">{{ facility.id }}</a></td>
                     <td>{{ facility.name }}</td>
+                    <td>
+                        {{ facility.user?.login }}
+                    </td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"
