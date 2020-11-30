@@ -48,6 +48,10 @@ public class CacheConfiguration {
             createCache(cm, com.velocitybackend.roomassn.domain.User.class.getName());
             createCache(cm, com.velocitybackend.roomassn.domain.Authority.class.getName());
             createCache(cm, com.velocitybackend.roomassn.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.velocitybackend.roomassn.domain.Facility.class.getName());
+            createCache(cm, com.velocitybackend.roomassn.domain.Facility.class.getName() + ".rooms");
+            createCache(cm, com.velocitybackend.roomassn.domain.Room.class.getName());
+            createCache(cm, com.velocitybackend.roomassn.domain.Resident.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

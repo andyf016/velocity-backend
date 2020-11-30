@@ -1,0 +1,28 @@
+{
+  "fluentMethods": true,
+  "clientRootFolder": "",
+  "relationships": [
+    {
+      "relationshipName": "room",
+      "otherEntityName": "room",
+      "relationshipType": "one-to-many",
+      "otherEntityRelationshipName": "facility"
+    }
+  ],
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique"]
+    }
+  ],
+  "changelogDate": "20201130072256",
+  "dto": "no",
+  "searchEngine": false,
+  "service": "no",
+  "entityTableName": "facility",
+  "databaseType": "sql",
+  "readOnly": false,
+  "jpaMetamodelFiltering": false,
+  "pagination": "infinite-scroll"
+}
