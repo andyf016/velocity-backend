@@ -1,0 +1,40 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.velocitybackend.roomassn"
+    },
+    "jhipsterVersion": "6.10.5",
+    "applicationType": "monolith",
+    "baseName": "roomassn",
+    "packageName": "com.velocitybackend.roomassn",
+    "packageFolder": "com/velocitybackend/roomassn",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "NzZiZTc1MTg4MjQ4Yzg1YWIxYjUwMDI3YTViNmYwMjRhYjU0ZDIzMTA2MWZiZmU4MTZiYTY2MDEzMTVmYWVkNTdhMDYwNzM2ZTEzOWYwNTNiNzYyN2MxZGQ0MDYxZjYzOGFjYTM3MzA4MWZmYWQ3ZGQwNDkwOWU2ZjQyY2YzZmI=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "creationTimestamp": 1606720258046,
+    "testFrameworks": ["protractor"],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false,
+    "blueprints": []
+  }
+}
